@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario extends CI_Controller {
@@ -20,7 +21,7 @@ class Usuario extends CI_Controller {
         $data['content'] = 'admin/usuarios/usuario';
         $this->load->view('admin', $data);
     }
-    
+
     public function formUsuario() {
         $data['nombre'] = $this->session->userdata('nick');
         $data['content'] = 'admin/usuarios/formUsuario';
@@ -28,13 +29,13 @@ class Usuario extends CI_Controller {
     }
 
     public function addUsuario() {
-        $n = $this->input->post('nombreUs');
-        $ap= $this->input->post('aPaterno');
-        $am= $this->input->post('aMaterno');
-        $u = $this->input->post('nick');
-        $p = $this->input->post('password');
-        $pr = $this->input->post('privilegios');
-        
+        $n = addslashes($this->input->post('nombreUs'));
+        $ap = addslashes($this->input->post('aPaterno'));
+        $am = addslashes($this->input->post('aMaterno'));
+        $u = addslashes($this->input->post('nick'));
+        $p = addslashes($this->input->post('password'));
+        $pr = addslashes($this->input->post('privilegios'));
+
         $this->Usuario_model->addUsuario($u, $p, $n, $ap, $am, $pr);
 
         redirect('Usuario/getUsuario');
@@ -43,8 +44,8 @@ class Usuario extends CI_Controller {
     public function upUsuario() {
         $i = $this->input->post('id');
         $n = $this->input->post('nombreUs');
-        $ap= $this->input->post('aPaterno');
-        $am= $this->input->post('aMaterno');
+        $ap = $this->input->post('aPaterno');
+        $am = $this->input->post('aMaterno');
         $u = $this->input->post('nick');
         $p = $this->input->post('password');
         $pr = $this->input->post('privilegios');
@@ -58,9 +59,9 @@ class Usuario extends CI_Controller {
     public function formUpUsuario($id = null) {
         $data['nombre'] = $this->session->userdata('nick');
         $data['usuario'] = $this->Usuario_model->getUsuario($id);
-        
 
-         $data['content'] = 'admin/usuarios/formUpUsuario';
+
+        $data['content'] = 'admin/usuarios/formUpUsuario';
         $this->load->view('admin', $data);
     }
 
@@ -69,8 +70,8 @@ class Usuario extends CI_Controller {
         redirect('usuario/getUsuario');
 //        $this->getUsuario();
     }
-    
-     public function cambiarPrivilegios($id, $privilegios) {
+
+    public function cambiarPrivilegios($id, $privilegios) {
         $privilegios = ($privilegios == 0) ? 1 : 0;
         $this->Usuario_model->cambiarPrivilegios($id, $privilegios);
         redirect('usuario/getUsuario');
@@ -99,12 +100,24 @@ class Usuario extends CI_Controller {
     }
 
     public function logueado() {
+
         if ($this->session->userdata('autentificado')) {
+
+
             $data['nombre'] = $this->session->userdata('nick');
             $data['privilegios'] = $this->session->userdata('privilegios');
             $data['id'] = $this->session->userdata('id');
-
             $data['content'] = 'admin/logueado';
+
+            $prefs['day_type'] = 'short';
+            $prefs = array(
+                'show_next_prev' => TRUE,
+                'next_prev_url' => base_url().'index.php/Usuario/logueado/'
+            );
+
+            $this->load->library('calendar', $prefs);
+
+
             $this->load->view('admin', $data);
         } else {
             redirect('usuario/index');
