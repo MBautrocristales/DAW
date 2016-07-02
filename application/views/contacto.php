@@ -53,4 +53,44 @@
         </div>
     </div>
     <!-- /.row -->
+    
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Dejanos un mensaje </h3>
+           <?php echo form_open('Mensaje/addMensaje'); ?>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Nombre:</label>
+                        <input type="text" class="form-control" id="name" name="nombreMen" required data-validation-required-message="Please enter your name.">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Telefono:</label>
+                        <input type="tel" class="form-control" id="phone" name="telefono" required data-validation-required-message="Please enter your phone number.">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Correo Electronico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required data-validation-required-message="Please enter your email address.">
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Mensaje:</label>
+                        <textarea rows="10" cols="100" class="form-control" id="message" name="mensaje" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                    </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+             <?php echo form_close(); ?>
+        </div>
+
+    </div>
+    <!-- /.row -->
     <hr>

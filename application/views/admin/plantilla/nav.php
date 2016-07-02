@@ -61,7 +61,7 @@
                                                 <a href="">
                                                     <i class="fa fa-object-ungroup text-green"></i> Agregar Producto
                                                 </a>
-                                            </li>                                   
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -159,9 +159,9 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                 </nav>
-                
+
             </header>
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -195,6 +195,11 @@
                   <i class="fa fa-object-group"></i> <span>Productos</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
+            <li class=" treeview">
+               <a href="<?php echo base_url();?>index.php/Bodega/getBodega">
+                   <i class="fa fa-stack-overflow"></i> <span>Bodegas</span> <i class="fa fa-angle-left pull-right"></i>
+               </a>
+             </li>
            <li class=" treeview">
               <a href="<?php echo base_url();?>index.php/Entrada/getEntrada">
                   <i class="fa fa-stack-overflow"></i> <span>Entradas</span> <i class="fa fa-angle-left pull-right"></i>
