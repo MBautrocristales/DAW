@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-lg-10 col-xs-12">
                 <img class="img-responsive" src="<?php echo base_url(); ?>images/Administrador/01_login/login_02.jpg" alt="">
-            </div>        
-            <div class="col-lg-2 col-xs-12">
+            </div>
+            <div class="col-lg-2 col-xs-2">
                 <div class="box box-solid bg-black-gradient">
                     <div class="box-header">
                         <i class="fa fa-calendar"></i>
