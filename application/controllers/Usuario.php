@@ -8,6 +8,7 @@ class Usuario extends CI_Controller {
         parent::__construct();
         $this->load->model('Usuario_model');
         $this->load->helper('form');
+        $this->load->library('form_validation');
     }
 
     public function index() {
@@ -29,16 +30,30 @@ class Usuario extends CI_Controller {
     }
 
     public function addUsuario() {
-        $n = addslashes($this->input->post('nombreUs'));
-        $ap = addslashes($this->input->post('aPaterno'));
-        $am = addslashes($this->input->post('aMaterno'));
-        $u = addslashes($this->input->post('nick'));
-        $p = addslashes($this->input->post('password'));
-        $pr = addslashes($this->input->post('privilegios'));
+        
+        $this->form_validation->set_rules('nombreUs','Nombre','trim|required');
+        $this->form_validation->set_rules('aPaterno','Apellido Paterno','trim|required');
+        $this->form_validation->set_rules('aMaterno','Apellido Materno','trim|required');
+        $this->form_validation->set_rules('nick','Usuario','trim|required');
+        $this->form_validation->set_rules('password','Contraseña','trim|required');
+        $this->form_validation->set_rules('privilegios','Privilegios','trim|required');
 
-        $this->Usuario_model->addUsuario($u, $p, $n, $ap, $am, $pr);
+        if ($this->form_validation->run() === FALSE) {
+            $data['nombre'] = $this->session->userdata('nick');
+            $data['content'] = 'admin/usuarios/formUsuario';
+            $this->load->view('admin', $data);
+        } else {
+            $n = addslashes($this->input->post('nombreUs'));
+            $ap = addslashes($this->input->post('aPaterno'));
+            $am = addslashes($this->input->post('aMaterno'));
+            $u = addslashes($this->input->post('nick'));
+            $p = addslashes($this->input->post('password'));
+            $pr = addslashes($this->input->post('privilegios'));
 
-        redirect('Usuario/getUsuario');
+            $this->Usuario_model->addUsuario($u, $p, $n, $ap, $am, $pr);
+
+            redirect('Usuario/getUsuario');
+        }
     }
 
     public function upUsuario() {
@@ -112,7 +127,7 @@ class Usuario extends CI_Controller {
             $prefs['day_type'] = 'short';
             $prefs = array(
                 'show_next_prev' => TRUE,
-                'next_prev_url' => base_url().'index.php/Usuario/logueado/'
+                'next_prev_url' => base_url() . 'index.php/Usuario/logueado/'
             );
 
             $this->load->library('calendar', $prefs);

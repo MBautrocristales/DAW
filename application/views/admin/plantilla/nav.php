@@ -112,6 +112,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="<?php echo base_url();?>index.php/Mensaje/getMensaje">
+                                                    <i class="fa fa-envelope"></i> Administrar Mensajes
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -186,6 +203,11 @@
             <li class=" treeview">
               <a href="<?php echo base_url();?>index.php/Salida/getSalida">
                   <i class="fa fa-external-link-square"></i> <span>Salidas</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+            <li class=" treeview">
+              <a href="<?php echo base_url();?>index.php/Mensaje/getMensaje">
+                  <i class="fa fa-envelope"></i> <span>Mensajes</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
           </ul>

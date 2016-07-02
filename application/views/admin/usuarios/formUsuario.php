@@ -22,49 +22,55 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
 
+
+
                     <?php echo form_open('Usuario/addUsuario'); ?>
 
                     <div class="box-body">
                         <div class="form-group">
                             Nombre:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="nombreUs" placeholder="Nombre">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <?php echo form_error('nombreUs','<div class = "error">','</div>');?>
+                                <input type="text"  class="form-control" name="nombreUs" required="" value="<?= set_value('nombreUs'); ?>" placeholder="Nombre">
+
                             </div>
                         </div>
-                         <div class="form-group">
-                            Nombre:
-                            <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="aPaterno" placeholder="Apellido Paterno">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <div class="form-group">
+                            Apellido Paterno:
+                            <div class="form-group has-feedback">                                
+                                <?php echo form_error('aPaterno','<div class = "error">','</div>');?>
+                                <input type="text"  class="form-control" name="aPaterno" required="" value="<?= set_value('aPaterno'); ?>" placeholder="Apellido Paterno">
+
                             </div>
                         </div>
-                         <div class="form-group">
-                            Nombre:
+                        <div class="form-group">
+                            Apellido Materno:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="aMaterno" placeholder="Apellido Materno">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <?php echo form_error('aMaterno','<div class = "error">','</div>');?>
+                                <input type="text"  class="form-control" name="aMaterno" required="" value="<?= set_value('aMaterno'); ?>" placeholder="Apellido Materno">
+
                             </div>
                         </div>
                         <div class="form-group">
                             Usuario:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="nick" placeholder="Usaurio">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <?php echo form_error('nick','<div class = "error">','</div>');?>
+                                <input type="text"  class="form-control" name="nick" required="" value="<?= set_value('nick'); ?>" placeholder="Usaurio">
                             </div>
                         </div>
                         <div class="form-group">
                             Contraseña:
-                            <div class="form-group has-feedback">
-                                <input type="password" required="" class="form-control" name="password" placeholder="Contraseña">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <div class="form-group has-feedback">                                
+                                <?php echo form_error('password','<div class = "error">','</div>');?>
+                                <input type="password"  class="form-control" name="password" required="" value="<?= set_value('password'); ?>" placeholder="Contraseña">
+
                             </div>
                         </div>
                         <div class="form-group">
                             Privilegios:
                             <select name="privilegios" class="form-control select2" style="width: 100%;">
-                                <option value="0" selected="">Usuario</option>
-                                <option value="1">Administrador</option>
+                                <option value="0" selected="" <?= set_select('privilegios', '0'); ?>>Usuario</option>
+                                <option value="1" <?= set_select('privilegios', '1'); ?>>Administrador</option>
                             </select>
                         </div>
 
