@@ -25,19 +25,20 @@
                                         <thead>
                                             <tr>
                                                 <td colspan="7"><a href="formProducto">Nuevo</td>
-                                                 <th colspan="3" class="hidden-xs">Precios</th>
+                                                 <th colspan="3" class="hidden-xs"></th>
                                                  </tr>
                                             <tr>
                                                 <th>Clave</th>
                                                 <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Año</th>
-                                                <th>Ubicacion</th>
-                                                <th>Existencia</th>
-                                                <th class="hidden-xs">Caracteristicas</th>
-                                                <th class="hidden-xs">Mayoreo</th>
-                                                <th class="hidden-xs">Publico</th>
-                                                <th class="hidden-xs">Instalado</th>
+                                                <th>id Categoria</th>
+                                                <th>id Precio</th>
+                                                <th>id Caracteristica</th>
+                                                <th>id Ubicacion</th>
+                                                <th>id Auto</th>
+                                                <th>id Procedencia</th>
+                                                <th>id Tipo</th>
+                                                <th>id Bodega</th>
+                                                <th>id Usuario</th>
                                                 <th colspan="3">Acciones</th>
                                             </tr>
                                         </thead>
@@ -49,17 +50,22 @@
                                                         echo "<tr>";
                                                          echo "<td>" . $pro->Clave . "</td>";
                                                         echo "<td>" . $pro->MarcaP . "</td>";
-                                                        echo "<td>" . $pro->modelo . "</td>";
-                                                        echo "<td>" . $pro->anyo . "</td>";
-                                                        echo "<td>R".$pro->rac."/F".$pro->fila."/P".$pro->piso."/P".$pro->posicion."</td>";
-                                                        echo "<td>" . $pro->existencia . "</td>";
-                                                        echo "<td class='hidden-xs'>" . $pro->color ."/". $pro->procedencia ."/". $pro->tipo . "</td>";
-                                                        echo "<td class='hidden-xs'>$" . $pro->pMayoreo . "</td>";
-                                                        echo "<td class='hidden-xs'>$" . $pro->pPublico . "</td>";
-                                                        echo "<td class='hidden-xs'>$" . $pro->pInstalado . "</td>";
-                                                        echo "<td><a href='formUpProducto/$pro->idProducto'>"."<spam class='hidden-xs'>Modificar</spam>"."<spam class='visible-xs glyphicon glyphicon-pencil'></spam>"."</a></td>";
-                                                        echo "<td class='hidden-xs'><a href='delProducto/$pro->idProducto'>Borrar</a></td>";
-                                                        echo "<td class='visible-xs'><a href='delProducto/$pro->idProducto'><spam class='glyphicon glyphicon-trash'></spam</a></td>";
+                                                        echo "<td>" . $pro->idCategoria . "</td>";
+                                                        echo "<td>" . $pro->idPrecio . "</td>";
+                                                        echo "<td>" . $pro->idCategoria . "</td>";
+                                                        echo "<td>" . $pro->idUbicacion . "</td>";
+                                                        echo "<td>" . $pro->idAuto . "</td>";
+                                                        echo "<td>" . $pro->idProcedencia . "</td>";
+                                                        echo "<td>" . $pro->idTipo . "</td>";
+                                                        echo "<td>" . $pro->idBodega . "</td>";
+                                                        echo "<td>" . $pro->idUsuario . "</td>";
+                                                        //echo "<td class='hidden-xs'>" . $pro->color ."/". $pro->procedencia ."/". $pro->tipo . "</td>";
+                                                        //echo "<td class='hidden-xs'>$" . $pro->pMayoreo . "</td>";
+                                                        //echo "<td class='hidden-xs'>$" . $pro->pPublico . "</td>";
+                                                        //echo "<td class='hidden-xs'>$" . $pro->pInstalado . "</td>";
+                                                        echo "<td><a href='formUpProducto/$pro->idParabrisas'>"."<spam class='hidden-xs'>Modificar</spam>"."<spam class='visible-xs glyphicon glyphicon-pencil'></spam>"."</a></td>";
+                                                        echo "<td class='hidden-xs'><a href='delProducto/$pro->idParabrisas'>Borrar</a></td>";
+                                                        echo "<td class='visible-xs'><a href='delProducto/$pro->idParabrisas'><spam class='glyphicon glyphicon-trash'></spam</a></td>";
                                                     }
                                                 } else {
                                                     echo 'Sin registro a mostrar';

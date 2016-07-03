@@ -11,7 +11,7 @@
             <li><a href="#">Productos</a></li>
             <li class="active">Agregar Producto</li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -28,113 +28,83 @@
                         <div class="form-group col-lg-2 col-xs-6">
                             Clave:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="clave" placeholder="clave">
+                                <input type="text" required="" class="form-control" name="Clave" placeholder="clave">
                             </div>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
                             Marca:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="marca" placeholder="marca">
+                                <input type="text" required="" class="form-control" name="MarcaP" placeholder="marca">
                             </div>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            Modelo:
-                            <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="modelo" placeholder="modelo">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Año:
-                            <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="anyo" placeholder="año">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Rac:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="rac" placeholder="rac">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Fila:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="fila" placeholder="fila">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Piso:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="piso" placeholder="piso">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Posicion:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="posicion" placeholder="posicion">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Existencia:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="existencia" placeholder="existencia">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            Color:
-                             <div class="form-group has-feedback">
-                            <select name="color" class="form-control select2" style="width: 100%;">
-                                <option value="GGN" selected="">GGN</option>
-                                <option value="GBN">GTN</option>
-                                <option value="GTN">GTN</option>
+                            id Categoria:
+                            <select name="idCategoria" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
-                             </div>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            Procedencia:
-                             <div class="form-group has-feedback">
-                            <select name="procedencia" class="form-control select2" style="width: 100%;">
-                                <option value="CMX" selected="">CMX</option>
-                                <option value="CGA">CGA</option>
+                            id Precio:
+                            <select name="idPrecio" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
                             </select>
-                             </div>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            Tipo:
-                             <div class="form-group has-feedback">
-                            <select name="tipo" class="form-control select2" style="width: 100%;">
-                                <option value="S" selected="">Sombra</option>
-                                <option value="C">Claro</option>
-                                <option value="T">Tintex</option>
-                                <option value="SC">Sombra/Claro</option>
-                                <option value="ST">Sombra/Tintex</option>
-                                <option value="CT">Caro/Tintex</option>
-                                <option value="SCT">Sombra/Caro/Tintex</option>
+                            id Caracteristicas:
+                            <select name="idCaracteristica" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
                             </select>
-                             </div>
                         </div>
-                        <div class="form-group col-lg-3 col-xs-6">
-                            Precio Lista $:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="pLista" placeholder="$ Precio Lista">
-                            </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Ubicacion:
+                            <select name="idUbicacion" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
+                            </select>
                         </div>
-                        <div class="form-group col-lg-3 col-xs-6">
-                            Precio Mayoreo $:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="pMayoreo" placeholder="$ Precio Mayoreo">
-                            </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Auto:
+                            <select name="idAuto" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
-                        <div class="form-group col-lg-3 col-xs-6">
-                            Precio Publico $:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="pPublico" placeholder="$ Precio Publico">
-                            </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Procedencia:
+                            <select name="idProcedencia" class="form-control select2" style="width: 100%;">
+                                <option value="2" selected="">2</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
-                        <div class="form-group col-lg-3 col-xs-6">
-                            Precio Instalado $:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="pInstalado" placeholder="$ Precio Instalado">
-                            </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Tipo:
+                            <select name="idTipo" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Bodega:
+                            <select name="idBodega" class="form-control select2" style="width: 100%;">
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-2 col-xs-6">
+                            id Usuario:
+                            <select name="idUsuario" class="form-control select2" style="width: 100%;">
+                                <option value="2" selected="">2</option>
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+
+                            </select>
                         </div>
 
                     </div><!-- /.box-body -->

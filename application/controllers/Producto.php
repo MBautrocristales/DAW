@@ -30,51 +30,40 @@ class Producto extends CI_Controller {
     }
 
     public function addProducto() {
-        $c = $this->input->post('clave');
-        $m = $this->input->post('marca');
-        $mod = $this->input->post('modelo');
-        $a = $this->input->post('anyo');
-        $r = $this->input->post('rac');
-        $f = $this->input->post('fila');
-        $p = $this->input->post('piso');
-        $po = $this->input->post('posicion');
-        $e = $this->input->post('existencia');
-        $col = $this->input->post('color');
-        $pro = $this->input->post('procedencia');
-        $t = $this->input->post('tipo');
-        $pl = $this->input->post('pLista');
-        $pm = $this->input->post('pMayoreo');
-        $pp = $this->input->post('pPublico');
-        $pi = $this->input->post('pInstalado');
-        
-        $this->Producto_model->addProducto($c, $m, $mod, $a,$p, $f, 
-                $po,$r,$e, $col, $pro, $t, $pl, $pm, $pp, $pi);
+
+        $c = $this->input->post('Clave');
+        $m = $this->input->post('MarcaP');
+        $idCat = $this->input->post('idCategoria');
+        $idPre = $this->input->post('idPrecio');
+        $idCar = $this->input->post('idCaracteristica');
+        $idUbi = $this->input->post('idUbicacion');
+        $idAut = $this->input->post('idAuto');
+        $idPro = $this->input->post('idProcedencia');
+        $idTip = $this->input->post('idTipo');
+        $idBod = $this->input->post('idBodega');
+        $idUsu = $this->input->post('idUsuario');
+
+        $this->Producto_model->addProducto($c, $m, $idCat, $idPre, $idCar, $idUbi, $idAut, $idPro, $idTip, $idBod, $idUsu);
 
         redirect('Producto/getProducto');
     }
 
     public function upProducto() {
         $i = $this->input->post('id');
-        $c = $this->input->post('clave');
-        $m = $this->input->post('marca');
-        $mod = $this->input->post('modelo');
-        $a = $this->input->post('anyo');
-        $r = $this->input->post('rac');
-        $f = $this->input->post('fila');
-        $p = $this->input->post('piso');
-        $po = $this->input->post('posicion');
-        $e = $this->input->post('existencia');
-        $col = $this->input->post('color');
-        $pro = $this->input->post('procedencia');
-        $t = $this->input->post('tipo');
-        $pl = $this->input->post('pLista');
-        $pm = $this->input->post('pMayoreo');
-        $pp = $this->input->post('pPublico');
-        $pi = $this->input->post('pInstalado');
+        $c = $this->input->post('Clave');
+        $m = $this->input->post('MarcaP');
+        $idCat = $this->input->post('idCategoria');
+        $idPre = $this->input->post('idPrecio');
+        $idCar = $this->input->post('idCaracteristica');
+        $idUbi = $this->input->post('idUbicacion');
+        $idAut = $this->input->post('idAuto');
+        $idPro = $this->input->post('idProcedencia');
+        $idTip = $this->input->post('idTipo');
+        $idBod = $this->input->post('idBodega');
+        $idUsu = $this->input->post('idUsuario');
 
 
-        $this->Producto_model->upProducto($i, $c, $m, $mod, $a,$p, $f, 
-                $po,$r,$e,$col, $pro, $t, $pl, $pm, $pp, $pi);
+        $this->Producto_model->upProducto($i, $c, $m, $idCat, $idPre, $idCar, $idUbi, $idAut, $idPro, $idTip, $idBod, $idUsu);
 
         redirect('Producto/getProducto');
     }
@@ -90,7 +79,7 @@ class Producto extends CI_Controller {
         $this->Producto_model->delProducto($id);
         redirect('producto/getProducto');
     }
-    
+
     public function cerrarSesion() {
         $user_array = array(
             'autentificado' => FALSE

@@ -2,74 +2,63 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Producto_model extends CI_Model{
-    
+
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function getProducto($id = null){
         $this->db->select('*');
         $this->db->from('parabrisas');
         if($id != null){
-            $this->db->where('idProducto', $id);
+            $this->db->where('idParabrisas', $id);
         }
         //get es un metodo pre-establecido de la variable db
         $sql = $this->db->get();
-        
+
         if($sql->num_rows() > 0){
             return $sql->result();
         }
     }
-    
-    public function addProducto($c, $m, $mod, $a,$p, $f, $po,$r,$e,$col, $pro, $t, $pl, $pm, $pp, $pi){
+
+    public function addProducto($c, $m, $idCat, $idPre, $idCar, $idUbi, $idAut, $idPro, $idTip, $idBod, $idUsu){
         $data=array (
-            'idProducto'=> 0,
+            'idParabrisas'=> 0,
             'Clave'=> $c,
             'MarcaP'=> $m,
-            'modelo'=> $mod,
-            'anyo'=> $a,
-            'rac'=> $r,
-            'fila'=> $f,
-            'piso'=> $p,
-            'posicion'=> $po,
-            'existencia'=> $e,
-            'color'=> $col,
-            'procedencia'=> $pro,
-            'tipo'=> $t,
-            'pLista'=> $pl,
-            'pMayoreo'=> $pm,
-            'pPublico'=> $pp,
-            'pInstalado'=> $pi);
-            
-        
-        return $this->db->insert('productos', $data); 
+            'idCategoria'=> $idCat,
+            'idPrecio'=> $idPre,
+            'idCaracteristica'=> $idCar,
+            'idUbicacion'=> $idUbi,
+            'idAuto'=> $idAut,
+            'idProcedencia'=> $idPro,
+            'idTipo'=> $idTip,
+            'idBodega'=> $idBod,
+            'idUsuario'=> $idUsu);
+
+        return $this->db->insert('parabrisas', $data);
     }
-    
-    public function upProducto($i, $c, $m, $mod, $a,$p, $f, $po,$r,$e,$col, $pro, $t, $pl, $pm, $pp, $pi){
+
+    public function upProducto($i, $c, $m, $idCat, $idPre, $idCar, $idUbi, $idAut, $idPro, $idTip, $idBod, $idUsu){
         $data = array(
-            'clave'=> $c,
-            'marca'=> $m,
-            'modelo'=> $mod,
-            'anyo'=> $a,
-            'rac'=> $r,
-            'fila'=> $f,
-            'piso'=> $p,
-            'posicion'=> $po,
-            'existencia'=> $e,
-            'color'=> $col,
-            'procedencia'=> $pro,
-            'tipo'=> $t,
-            'pLista'=> $pl,
-            'pMayoreo'=> $pm,
-            'pPublico'=> $pp,
-            'pInstalado'=> $pi);
-        $this->db->where('idProducto', $i);
-        return $this->db->update('productos', $data);
+          'Clave'=> $c,
+          'MarcaP'=> $m,
+          'idCategoria'=> $idCat,
+          'idPrecio'=> $idPre,
+          'idCaracteristica'=> $idCar,
+          'idUbicacion'=> $idUbi,
+          'idAuto'=> $idAut,
+          'idProcedencia'=> $idPro,
+          'idTipo'=> $idTip,
+          'idBodega'=> $idBod,
+          'idUsuario'=> $idUsu);
+        $this->db->where('idParabrisas', $i);
+        return $this->db->update('parabrisas', $data);
     }
-    
+
     public function delProducto($id) {
-        $this->db->where('idProducto', $id);
-        return $this->db->delete('productos');
+        $this->db->where('idParabrisas', $id);
+        return $this->db->delete('parabrisas');
     }
-    
+
 }
