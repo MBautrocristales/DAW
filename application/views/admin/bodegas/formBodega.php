@@ -3,48 +3,42 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Usuarios
-            <small>Nueva Entrada</small>
+            Bodegas
+            <small>Nueva Bodega</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/logueado"><i class="fa fa-home"></i> Inicio</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Entrada/getEntrada"><i class="fa fa-stack-overflow"></i>Entrada</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Entrada/formEntrada"><i class="fa fa-stack-overflow"></i>Agregar Entrada</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Bodega/getBodega"><i class="fa fa-archive"></i>Bodegas</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Bodega/formBodega"><i class="fa fa-archive"></i>Agregar Bodega</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Entradas</h3>
+                        <h3 class="box-title">Bodegas</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
 
-                    <?php echo form_open('Entrada/addEntrada'); ?>
+                    <?php echo form_open('Bodega/addBodega'); ?>
 
                     <div class="box-body">
-                        <div class="form-group">
-                            Fecha:
+                         <div class="form-group">
+                            Stock:
                             <div class="form-group has-feedback">
-                                <input type="date" required="" class="form-control" name="FechaE" placeholder="Fecha">
-                                
+                                <input type="number" required="" class="form-control" name="Stock" placeholder="Stock">
+
                             </div>
                         </div>
-                         <div class="form-group">
-                            Cantidad:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="CantidadE" placeholder="Cantidad">
-                                
-                            </div>
-                        </div> 
                         <div class="form-group">
-                            Bodega:
-                            <select name="idBodega" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
+                            Precio Publico:
+                            <input type="number" required="" class="form-control" name="P_Publico" placeholder="Precio Publico">
+                        </div>
+                        <div class="form-group">
+                            Precio Instalado:
+                            <input type="number" required="" class="form-control" name="P_Instalado" placeholder="Precio Publico">
                         </div>
 
                     </div><!-- /.box-body -->

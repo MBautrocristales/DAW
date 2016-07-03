@@ -3,15 +3,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Usuarios
-            <small>Nueva Entrada</small>
+            Salidas
+            <small>Nueva Salida</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/logueado"><i class="fa fa-home"></i> Inicio</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Salida/getSalida"><i class="fa fa-users"></i>Entrada</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Salida/formSalida"><i class="fa fa-users"></i>Agregar Entrada</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Salida/getSalida"><i class="fa fa-users"></i>Salidas</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Salida/formSalida"><i class="fa fa-users"></i>Agregar Salida</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -26,21 +26,21 @@
 
                     <div class="box-body">
                         <div class="form-group">
-                            Nombre:
+                            Fecha:
                             <div class="form-group has-feedback">
                                 <input type="date" required="" class="form-control" name="FechaS" placeholder="Fecha">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
                         </div>
                          <div class="form-group">
-                            Nombre:
+                            Cantidad:
                             <div class="form-group has-feedback">
                                 <input type="number" required="" class="form-control" name="CantidadS" placeholder="Cantidad">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
-                            Privilegios:
+                            Bodega:
                             <select name="idBodega" class="form-control select2" style="width: 100%;">
                                 <option value="1" selected="">1</option>
                                 <option value="2">2</option>

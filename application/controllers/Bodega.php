@@ -30,23 +30,23 @@ class Bodega extends CI_Controller {
     }
 
     public function addBodega() {
-        $feche = $this->input->post('FechaE');
-        $cane = $this->input->post('CantidadE');
-        $idb = $this->input->post('idBodega');
+        $stock = $this->input->post('Stock');
+        $preP = $this->input->post('P_Publico');
+        $preI = $this->input->post('P_Instalado');
 
-        $this->Bodega_model->addBodega($feche, $cane, $idb);
+        $this->Bodega_model->addBodega($stock, $preP, $preI);
 
         redirect('Bodega/getBodega');
     }
 
     public function upBodega() {
         $i = $this->input->post('id');
-        $feche = $this->input->post('FechaE');
-        $cane = $this->input->post('CantidadE');
-        $idb = $this->input->post('idBodega');
+        $stock = $this->input->post('Stock');
+        $preP = $this->input->post('P_Publico');
+        $preI = $this->input->post('P_Instalado');
 
 
-        $this->Bodega_model->upBodega($i, $feche, $cane, $idb);
+        $this->Bodega_model->upBodega($i, $stock, $preP, $preI);
 
         redirect('Bodega/getBodega');
     }

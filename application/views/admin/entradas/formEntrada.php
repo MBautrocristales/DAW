@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Usuarios
+            Entradas
             <small>Nueva Entrada</small>
         </h1>
         <ol class="breadcrumb">
@@ -11,7 +11,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/Entrada/getEntrada"><i class="fa fa-stack-overflow"></i>Entrada</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/Entrada/formEntrada"><i class="fa fa-stack-overflow"></i>Agregar Entrada</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -29,16 +29,16 @@
                             Fecha:
                             <div class="form-group has-feedback">
                                 <input type="date" required="" class="form-control" name="FechaE" placeholder="Fecha">
-                                
+
                             </div>
                         </div>
                          <div class="form-group">
                             Cantidad:
                             <div class="form-group has-feedback">
                                 <input type="number" required="" class="form-control" name="CantidadE" placeholder="Cantidad">
-                                
+
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             Bodega:
                             <select name="idBodega" class="form-control select2" style="width: 100%;">

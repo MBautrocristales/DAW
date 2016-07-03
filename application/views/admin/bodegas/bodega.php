@@ -44,9 +44,9 @@
                                             echo "<td>" . $bo->Stock . "</td>";
                                             echo "<td>" . $bo->P_Publico . "</td>";
                                             echo "<td>" . $bo->P_Instalado . "</td>";
-                                            echo "<td><a href='formUpEntrada/$bo->idBodega'>" . "<spam class='hidden-xs'>Modificar</spam>" . "<spam class='visible-xs glyphicon glyphicon-pencil'></spam>" . "</a></td>";
-                                            echo "<td class='hidden-xs'><a href='delEntrada/$bo->idBodega'>Borrar</a></td>";
-                                            echo "<td class='visible-xs'><a href='delEntrada/$bo->idBodega'><spam class='glyphicon glyphicon-trash'></spam</a></td>";
+                                            echo "<td><a href='formUpBodega/$bo->idBodega'>" . "<spam class='hidden-xs'>Modificar</spam>" . "<spam class='visible-xs glyphicon glyphicon-pencil'></spam>" . "</a></td>";
+                                            echo "<td class='hidden-xs'><a href='delBodega/$bo->idBodega'>Borrar</a></td>";
+                                            echo "<td class='visible-xs'><a href='delBodega/$bo->idBodega'><spam class='glyphicon glyphicon-trash'></spam</a></td>";
                                         }
                                     } else {
                                         echo 'Sin registro a mostrar';
