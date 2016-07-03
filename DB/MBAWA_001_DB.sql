@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 02, 2016 at 05:46 AM
--- Server version: 5.7.12-0ubuntu1.1
--- PHP Version: 7.0.4-7ubuntu2.1
+-- Servidor: localhost
+-- Tiempo de generación: 02-07-2016 a las 23:48:38
+-- Versión del servidor: 5.7.12-0ubuntu1.1
+-- Versión de PHP: 7.0.4-7ubuntu2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `MBAWA_001_DB`
+-- Base de datos: `MBAWA_001_DB`
 --
 CREATE DATABASE IF NOT EXISTS `MBAWA_001_DB` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `MBAWA_001_DB`;
@@ -25,7 +25,7 @@ USE `MBAWA_001_DB`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anio`
+-- Estructura de tabla para la tabla `anio`
 --
 
 CREATE TABLE `anio` (
@@ -36,7 +36,7 @@ CREATE TABLE `anio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `anio`
+-- Volcado de datos para la tabla `anio`
 --
 
 INSERT INTO `anio` (`idAnio`, `AnioAuto`, `idModelo`, `idAuto`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `anio` (`idAnio`, `AnioAuto`, `idModelo`, `idAuto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auto`
+-- Estructura de tabla para la tabla `auto`
 --
 
 CREATE TABLE `auto` (
@@ -55,7 +55,7 @@ CREATE TABLE `auto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `auto`
+-- Volcado de datos para la tabla `auto`
 --
 
 INSERT INTO `auto` (`idAuto`, `MarcaA`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `auto` (`idAuto`, `MarcaA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bodega`
+-- Estructura de tabla para la tabla `bodega`
 --
 
 CREATE TABLE `bodega` (
@@ -76,17 +76,19 @@ CREATE TABLE `bodega` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bodega`
+-- Volcado de datos para la tabla `bodega`
 --
 
 INSERT INTO `bodega` (`idBodega`, `Stock`, `P_Publico`, `P_Instalado`) VALUES
-(1, 95, 1500, 1800),
-(2, 100, 1500, 1800);
+(1, 105, 1500, 1800),
+(2, 100, 1500, 1800),
+(4, 50, 1000, 1500),
+(5, 20, 2000, 2500);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `caracteristica`
+-- Estructura de tabla para la tabla `caracteristica`
 --
 
 CREATE TABLE `caracteristica` (
@@ -95,7 +97,7 @@ CREATE TABLE `caracteristica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `caracteristica`
+-- Volcado de datos para la tabla `caracteristica`
 --
 
 INSERT INTO `caracteristica` (`idCaracteristica`, `Color`) VALUES
@@ -105,7 +107,7 @@ INSERT INTO `caracteristica` (`idCaracteristica`, `Color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Estructura de tabla para la tabla `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -115,17 +117,19 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categoria`
+-- Volcado de datos para la tabla `categoria`
 --
 
 INSERT INTO `categoria` (`idCategoria`, `NombreCat`, `DescripcionCat`) VALUES
 (1, 'Parabrisas', 'Cristal delantero'),
-(2, 'Medallon', 'Cristal trasero');
+(2, 'Medallon', 'Cristal trasero'),
+(3, 'Aleta', 'Cristales de los costados'),
+(4, 'Puertas', 'Cristales de las pueras');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detallesuc`
+-- Estructura de tabla para la tabla `detallesuc`
 --
 
 CREATE TABLE `detallesuc` (
@@ -138,7 +142,7 @@ CREATE TABLE `detallesuc` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entrada`
+-- Estructura de tabla para la tabla `entrada`
 --
 
 CREATE TABLE `entrada` (
@@ -149,48 +153,19 @@ CREATE TABLE `entrada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `entrada`
+-- Volcado de datos para la tabla `entrada`
 --
 
 INSERT INTO `entrada` (`idEntrada`, `FechaE`, `CantidadE`, `idBodega`) VALUES
 (2, '2016-06-05', 20, 1),
 (3, '2016-06-05', 20, 1),
-(5, '2016-06-05', 10, 1);
-
---
--- Triggers `entrada`
---
-DELIMITER $$
-CREATE TRIGGER `tg_addEntrada` AFTER INSERT ON `entrada` FOR EACH ROW BEGIN
-	UPDATE bodega set stock=stock+(NEW.cantidadE) 
-		where idBodega = new.idBodega;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `tg_delEntrada` AFTER DELETE ON `entrada` FOR EACH ROW BEGIN
-	UPDATE bodega set stock=stock-(OLD.cantidadE) 
-		where idBodega = OLD.idBodega;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `updEntrada` BEFORE UPDATE ON `entrada` FOR EACH ROW BEGIN
-		IF NEW.CantidadE < OLD.CAntidadE THEN
-			UPDATE bodega set stock=stock-(OLD.cantidadE - NEW.cantidadE) 
-			where idBodega = new.idBodega;
-		ELSEIF NEW.CantidadE > OLD.CantidadE THEN
-			UPDATE bodega set stock=stock+(NEW.cantidadE - OLD.cantidadE) 
-		where idBodega = OLD.idBodega;
-		END IF;
-END
-$$
-DELIMITER ;
+(5, '2016-06-05', 10, 1),
+(6, '2016-07-14', 10, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mensajes`
+-- Estructura de tabla para la tabla `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -203,7 +178,7 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mensajes`
+-- Volcado de datos para la tabla `mensajes`
 --
 
 INSERT INTO `mensajes` (`idMensaje`, `nombreMen`, `telefono`, `email`, `mensaje`, `mStatus`) VALUES
@@ -217,7 +192,7 @@ INSERT INTO `mensajes` (`idMensaje`, `nombreMen`, `telefono`, `email`, `mensaje`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modelo`
+-- Estructura de tabla para la tabla `modelo`
 --
 
 CREATE TABLE `modelo` (
@@ -227,7 +202,7 @@ CREATE TABLE `modelo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `modelo`
+-- Volcado de datos para la tabla `modelo`
 --
 
 INSERT INTO `modelo` (`idModelo`, `ModAuto`, `idAuto`) VALUES
@@ -237,7 +212,7 @@ INSERT INTO `modelo` (`idModelo`, `ModAuto`, `idAuto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parabrisas`
+-- Estructura de tabla para la tabla `parabrisas`
 --
 
 CREATE TABLE `parabrisas` (
@@ -256,27 +231,18 @@ CREATE TABLE `parabrisas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `parabrisas`
+-- Volcado de datos para la tabla `parabrisas`
 --
 
 INSERT INTO `parabrisas` (`idParabrisas`, `Clave`, `MarcaP`, `idCategoria`, `idPrecio`, `idCaracteristica`, `idUbicacion`, `idAuto`, `idProcedencia`, `idTipo`, `idBodega`, `idUsuario`) VALUES
 (1, '166865565', 'Vitro', 1, 1, 1, 1, 1, 2, 1, 1, 3),
-(2, '9654245515', 'Vimex', 1, 2, 2, 2, 1, 2, 2, 1, 2);
-
---
--- Triggers `parabrisas`
---
-DELIMITER $$
-CREATE TRIGGER `tg_dellParabrisas` BEFORE DELETE ON `parabrisas` FOR EACH ROW BEGIN
-		DELETE FROM bodega WHERE bodega.idBodega = OLD.idBodega;
-END
-$$
-DELIMITER ;
+(2, '9654245515', 'Vimex', 1, 2, 2, 2, 1, 2, 2, 1, 2),
+(6, '15865466', 'VITRO', 4, 2, 2, 2, 4, 4, 2, 2, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `precio`
+-- Estructura de tabla para la tabla `precio`
 --
 
 CREATE TABLE `precio` (
@@ -286,7 +252,7 @@ CREATE TABLE `precio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `precio`
+-- Volcado de datos para la tabla `precio`
 --
 
 INSERT INTO `precio` (`idPrecio`, `P_Lista`, `P_Mayoreo`) VALUES
@@ -296,7 +262,7 @@ INSERT INTO `precio` (`idPrecio`, `P_Lista`, `P_Mayoreo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `procedencia`
+-- Estructura de tabla para la tabla `procedencia`
 --
 
 CREATE TABLE `procedencia` (
@@ -305,7 +271,7 @@ CREATE TABLE `procedencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `procedencia`
+-- Volcado de datos para la tabla `procedencia`
 --
 
 INSERT INTO `procedencia` (`idProcedencia`, `NombreP`) VALUES
@@ -315,7 +281,7 @@ INSERT INTO `procedencia` (`idProcedencia`, `NombreP`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salida`
+-- Estructura de tabla para la tabla `salida`
 --
 
 CREATE TABLE `salida` (
@@ -326,7 +292,7 @@ CREATE TABLE `salida` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `salida`
+-- Volcado de datos para la tabla `salida`
 --
 
 INSERT INTO `salida` (`idSalida`, `FechaS`, `CantidadS`, `idBodega`) VALUES
@@ -335,40 +301,10 @@ INSERT INTO `salida` (`idSalida`, `FechaS`, `CantidadS`, `idBodega`) VALUES
 (3, '2016-06-15', 20, 1),
 (4, '2016-06-13', 5, 1);
 
---
--- Triggers `salida`
---
-DELIMITER $$
-CREATE TRIGGER `tg_addSalida` AFTER INSERT ON `salida` FOR EACH ROW BEGIN
-	UPDATE bodega set stock=stock-(NEW.cantidadS) 
-		where idBodega = new.idBodega;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `tg_delSalida` AFTER DELETE ON `salida` FOR EACH ROW BEGIN
-	UPDATE bodega set stock=stock+(OLD.cantidadS) 
-		where idBodega = OLD.idBodega;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `updSalida` BEFORE UPDATE ON `salida` FOR EACH ROW BEGIN
-		IF NEW.CantidadS < OLD.CantidadS THEN
-			UPDATE bodega set stock=stock-(OLD.cantidadS - NEW.cantidadS) 
-			where idBodega = new.idBodega;
-		ELSEIF NEW.CantidadS > OLD.CantidadS THEN
-			UPDATE bodega set stock=stock+(NEW.cantidadS - OLD.cantidadS) 
-		where idBodega = OLD.idBodega;
-		END IF;
-END
-$$
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sucursal`
+-- Estructura de tabla para la tabla `sucursal`
 --
 
 CREATE TABLE `sucursal` (
@@ -377,7 +313,7 @@ CREATE TABLE `sucursal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sucursal`
+-- Volcado de datos para la tabla `sucursal`
 --
 
 INSERT INTO `sucursal` (`idSucursal`, `NombreSuc`) VALUES
@@ -387,7 +323,7 @@ INSERT INTO `sucursal` (`idSucursal`, `NombreSuc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo`
+-- Estructura de tabla para la tabla `tipo`
 --
 
 CREATE TABLE `tipo` (
@@ -396,7 +332,7 @@ CREATE TABLE `tipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_danish_ci;
 
 --
--- Dumping data for table `tipo`
+-- Volcado de datos para la tabla `tipo`
 --
 
 INSERT INTO `tipo` (`idTipo`, `NombreT`) VALUES
@@ -406,7 +342,7 @@ INSERT INTO `tipo` (`idTipo`, `NombreT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ubicacion`
+-- Estructura de tabla para la tabla `ubicacion`
 --
 
 CREATE TABLE `ubicacion` (
@@ -418,7 +354,7 @@ CREATE TABLE `ubicacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ubicacion`
+-- Volcado de datos para la tabla `ubicacion`
 --
 
 INSERT INTO `ubicacion` (`idUbicacion`, `Rac`, `Fila`, `Piso`, `Posicion`) VALUES
@@ -428,7 +364,7 @@ INSERT INTO `ubicacion` (`idUbicacion`, `Rac`, `Fila`, `Piso`, `Posicion`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -436,58 +372,59 @@ CREATE TABLE `usuario` (
   `nombreUs` varchar(45) NOT NULL,
   `aPaterno` varchar(45) NOT NULL,
   `aMaterno` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `nick` varchar(45) NOT NULL,
   `privilegios` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nombreUs`, `aPaterno`, `aMaterno`, `password`, `nick`, `privilegios`) VALUES
 (2, 'Jose', 'Lopez', 'B', '1234', 'Joxe', 1),
 (3, 'a757', 'll7', 'a', 'a', 'a', 0),
 (5, 'iiii', 'iiii', 'iiii', 'iii', 'iii', 0),
-(10, 'jos hhhh nhh', 'AS', 'a', '1234', 'Joxe', 1);
+(10, 'jos hhhh nhh', 'AS', 'a', '1234', 'Joxe', 1),
+(11, 'Nelly', 'Arr', 'R', 'y9K242Rt495zUbMtPyisKPlYkNFQlZewmT3m7TTmfFCNvjhNRPcOqZmUbwbUkqd0M9r/eyw8zDMvuwWqOEcdhQ==', 'Nelly1', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `anio`
+-- Indices de la tabla `anio`
 --
 ALTER TABLE `anio`
   ADD PRIMARY KEY (`idAnio`,`idModelo`,`idAuto`),
   ADD KEY `fk_Anio_Modelo1_idx` (`idModelo`,`idAuto`);
 
 --
--- Indexes for table `auto`
+-- Indices de la tabla `auto`
 --
 ALTER TABLE `auto`
   ADD PRIMARY KEY (`idAuto`);
 
 --
--- Indexes for table `bodega`
+-- Indices de la tabla `bodega`
 --
 ALTER TABLE `bodega`
   ADD PRIMARY KEY (`idBodega`);
 
 --
--- Indexes for table `caracteristica`
+-- Indices de la tabla `caracteristica`
 --
 ALTER TABLE `caracteristica`
   ADD PRIMARY KEY (`idCaracteristica`);
 
 --
--- Indexes for table `categoria`
+-- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Indexes for table `detallesuc`
+-- Indices de la tabla `detallesuc`
 --
 ALTER TABLE `detallesuc`
   ADD PRIMARY KEY (`idDetalleSuc`,`idSalida`,`idBodega`,`idSucursal`),
@@ -495,27 +432,27 @@ ALTER TABLE `detallesuc`
   ADD KEY `fk_DetalleSuc_Sucursal1_idx` (`idSucursal`);
 
 --
--- Indexes for table `entrada`
+-- Indices de la tabla `entrada`
 --
 ALTER TABLE `entrada`
   ADD PRIMARY KEY (`idEntrada`,`idBodega`),
   ADD KEY `fk_Entrada_Bodega1_idx` (`idBodega`);
 
 --
--- Indexes for table `mensajes`
+-- Indices de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`idMensaje`);
 
 --
--- Indexes for table `modelo`
+-- Indices de la tabla `modelo`
 --
 ALTER TABLE `modelo`
   ADD PRIMARY KEY (`idModelo`,`idAuto`),
   ADD KEY `fk_Modelo_Auto1_idx` (`idAuto`);
 
 --
--- Indexes for table `parabrisas`
+-- Indices de la tabla `parabrisas`
 --
 ALTER TABLE `parabrisas`
   ADD PRIMARY KEY (`idParabrisas`,`idCategoria`,`idPrecio`,`idCaracteristica`,`idUbicacion`,`idAuto`,`idProcedencia`,`idTipo`,`idBodega`,`idUsuario`),
@@ -530,168 +467,168 @@ ALTER TABLE `parabrisas`
   ADD KEY `fk_parabrisas_usuarios1_idx` (`idUsuario`);
 
 --
--- Indexes for table `precio`
+-- Indices de la tabla `precio`
 --
 ALTER TABLE `precio`
   ADD PRIMARY KEY (`idPrecio`);
 
 --
--- Indexes for table `procedencia`
+-- Indices de la tabla `procedencia`
 --
 ALTER TABLE `procedencia`
   ADD PRIMARY KEY (`idProcedencia`);
 
 --
--- Indexes for table `salida`
+-- Indices de la tabla `salida`
 --
 ALTER TABLE `salida`
   ADD PRIMARY KEY (`idSalida`,`idBodega`),
   ADD KEY `fk_Salida_Bodega1_idx` (`idBodega`);
 
 --
--- Indexes for table `sucursal`
+-- Indices de la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
   ADD PRIMARY KEY (`idSucursal`);
 
 --
--- Indexes for table `tipo`
+-- Indices de la tabla `tipo`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`idTipo`);
 
 --
--- Indexes for table `ubicacion`
+-- Indices de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   ADD PRIMARY KEY (`idUbicacion`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `anio`
+-- AUTO_INCREMENT de la tabla `anio`
 --
 ALTER TABLE `anio`
   MODIFY `idAnio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `auto`
+-- AUTO_INCREMENT de la tabla `auto`
 --
 ALTER TABLE `auto`
   MODIFY `idAuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `bodega`
+-- AUTO_INCREMENT de la tabla `bodega`
 --
 ALTER TABLE `bodega`
-  MODIFY `idBodega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idBodega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `caracteristica`
+-- AUTO_INCREMENT de la tabla `caracteristica`
 --
 ALTER TABLE `caracteristica`
   MODIFY `idCaracteristica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `categoria`
+-- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `detallesuc`
+-- AUTO_INCREMENT de la tabla `detallesuc`
 --
 ALTER TABLE `detallesuc`
   MODIFY `idDetalleSuc` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `entrada`
+-- AUTO_INCREMENT de la tabla `entrada`
 --
 ALTER TABLE `entrada`
-  MODIFY `idEntrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idEntrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `mensajes`
+-- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
   MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `modelo`
+-- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
   MODIFY `idModelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `parabrisas`
+-- AUTO_INCREMENT de la tabla `parabrisas`
 --
 ALTER TABLE `parabrisas`
-  MODIFY `idParabrisas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idParabrisas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `precio`
+-- AUTO_INCREMENT de la tabla `precio`
 --
 ALTER TABLE `precio`
   MODIFY `idPrecio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `procedencia`
+-- AUTO_INCREMENT de la tabla `procedencia`
 --
 ALTER TABLE `procedencia`
   MODIFY `idProcedencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `salida`
+-- AUTO_INCREMENT de la tabla `salida`
 --
 ALTER TABLE `salida`
   MODIFY `idSalida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `sucursal`
+-- AUTO_INCREMENT de la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
   MODIFY `idSucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `tipo`
+-- AUTO_INCREMENT de la tabla `tipo`
 --
 ALTER TABLE `tipo`
   MODIFY `idTipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `ubicacion`
+-- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `idUbicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `anio`
+-- Filtros para la tabla `anio`
 --
 ALTER TABLE `anio`
   ADD CONSTRAINT `fk_Anio_Modelo1` FOREIGN KEY (`idModelo`,`idAuto`) REFERENCES `modelo` (`idModelo`, `idAuto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `detallesuc`
+-- Filtros para la tabla `detallesuc`
 --
 ALTER TABLE `detallesuc`
   ADD CONSTRAINT `fk_DetalleSuc_Salida1` FOREIGN KEY (`idSalida`,`idBodega`) REFERENCES `salida` (`idSalida`, `idBodega`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_DetalleSuc_Sucursal1` FOREIGN KEY (`idSucursal`) REFERENCES `sucursal` (`idSucursal`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `entrada`
+-- Filtros para la tabla `entrada`
 --
 ALTER TABLE `entrada`
   ADD CONSTRAINT `fk_Entrada_Bodega1` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `modelo`
+-- Filtros para la tabla `modelo`
 --
 ALTER TABLE `modelo`
   ADD CONSTRAINT `fk_Modelo_Auto1` FOREIGN KEY (`idAuto`) REFERENCES `auto` (`idAuto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `parabrisas`
+-- Filtros para la tabla `parabrisas`
 --
 ALTER TABLE `parabrisas`
   ADD CONSTRAINT `fk_Parabrisas_Auto1` FOREIGN KEY (`idAuto`) REFERENCES `auto` (`idAuto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -705,7 +642,7 @@ ALTER TABLE `parabrisas`
   ADD CONSTRAINT `fk_parabrisas_usuarios1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `salida`
+-- Filtros para la tabla `salida`
 --
 ALTER TABLE `salida`
   ADD CONSTRAINT `fk_Salida_Bodega1` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`) ON DELETE NO ACTION ON UPDATE NO ACTION;

@@ -30,7 +30,7 @@ class Usuario extends CI_Controller {
     }
 
     public function addUsuario() {
-        
+
         $this->form_validation->set_rules('nombreUs','Nombre','trim|required');
         $this->form_validation->set_rules('aPaterno','Apellido Paterno','trim|required');
         $this->form_validation->set_rules('aMaterno','Apellido Materno','trim|required');
@@ -47,7 +47,7 @@ class Usuario extends CI_Controller {
             $ap = addslashes($this->input->post('aPaterno'));
             $am = addslashes($this->input->post('aMaterno'));
             $u = addslashes($this->input->post('nick'));
-            $p = addslashes($this->input->post('password'));
+            $p = addslashes($this->encrypt->encode('password'));
             $pr = addslashes($this->input->post('privilegios'));
 
             $this->Usuario_model->addUsuario($u, $p, $n, $ap, $am, $pr);
