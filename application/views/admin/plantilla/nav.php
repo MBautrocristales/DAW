@@ -66,6 +66,28 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-archive"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="<?php echo base_url();?>index.php/Bodega/getBodega">
+                                                    <i class="fa fa-archive"></i> Administrar Bodegas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url();?>index.php/Bodega/formBodega">
+                                                    <i class="fa fa-archive text-green"></i> Agregar Bodega
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                             <!-- Tasks: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -197,7 +219,7 @@
             </li>
             <li class=" treeview">
                <a href="<?php echo base_url();?>index.php/Bodega/getBodega">
-                   <i class="fa fa-stack-overflow"></i> <span>Bodegas</span> <i class="fa fa-angle-left pull-right"></i>
+                   <i class="fa fa-archive"></i> <span>Bodegas</span> <i class="fa fa-angle-left pull-right"></i>
                </a>
              </li>
            <li class=" treeview">
