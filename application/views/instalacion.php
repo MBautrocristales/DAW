@@ -18,12 +18,12 @@
         </div>
 
         <div class="col-md-4">
-            
-            <p>Somos expertos en el cambio de cristal para auto y camiones contamos con el espacio y personal adecuado 
-                para brindarte el mejor servicio en la venta e instalación del cristal automotriz que tu auto necesita: 
-                Parabrisas, medallones, vidrios laterales, aletas para tu auto. Siente la seguridad de estar en una de 
-                nuestras sucursales, mientras estamos instalando a tu auto un producto de las más alta calidad con 
-                personal altamente calificado para garantizarte el mejor servicio</p>
+
+            <p>Somos expertos en el cambio de autocristales, contamos con el espacio y personal adecuado
+                para brindarte el mejor servicio en la venta e instalación del cristal automotriz que tu auto necesita:
+                Parabrisas, medallones, vidrios laterales, aletas para tu auto. Siente la seguridad de estar en una de
+                nuestras sucursales, mientras estamos instalando a tu auto un producto de las más alta calidad con
+                personal altamente calificado para garantizarle el mejor servicio</p>
         </div>
 
     </div>
@@ -33,7 +33,7 @@
     <div class="row">
 
         <div class="col-lg-12">
-            <h3 class="page-header">Instalacion</h3>
+            <h3 class="page-header">Instalación</h3>
         </div>
 
         <div class="col-sm-3 col-xs-6">
@@ -64,4 +64,3 @@
     <!-- /.row -->
 
     <hr>
-

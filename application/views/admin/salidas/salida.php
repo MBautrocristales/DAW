@@ -29,7 +29,7 @@
                                             <tr>
                                                 <th>Fecha</th>
                                                 <th>Cantidad</th>
-                                                <th>Bodega</th>
+                                                <th>id Bodega</th>
                                                 <th colspan="4">Acciones</th>
                                             </tr>
                                         </thead>
@@ -53,6 +53,21 @@
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <div class="col-md-12 col-sm-12">
+                          <h2>Generar reporte</h2>
+                            <?php echo form_open('Salida/generar')?>
+                            <div class="radio">
+                <label>
+                    <input name="formato" type="radio" value="xml" required>XML
+                </label>
+                <label>
+                    <input name="formato" type="radio" value="xls" required>EXCEL
+                </label>
+            </div>
+                                <input type="submit" value="Generar" class="center-block btn btn-info" onclick="return confirm('¿Deseas Continuar?')">
+                             </form>
+                        </div>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
                         </div><!-- /.col -->

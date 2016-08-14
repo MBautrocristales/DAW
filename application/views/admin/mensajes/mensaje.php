@@ -8,7 +8,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="<?php echo base_url(); ?>index.php/Usuario/logueado"><i class="fa fa-home"></i> Inicio</a></li>
-                        <li><a href="<?php echo base_url(); ?>index.php/Usuario/getMensaje"><i class="fa fa-envelope"></i>Mensajes</a></li>
+                        <li><a href="<?php echo base_url(); ?>index.php/Mensaje/getMensaje"><i class="fa fa-envelope"></i>Mensajes</a></li>
                     </ol>
                 </section>
 
@@ -48,7 +48,7 @@
                                                         if($m->mStatus == 1){
                                                             echo "<td class='visible-xs'><a href='cambiarStatus/$m->idMensaje/$m->mStatus'><spam class='glyphicon glyphicon-eye-close'></spam</a></td>";
                                                         }else {
-                                                           echo "<td class='visible-xs'><a href='cambiarStatus/$m->idMensaje/$m->mStatus'><spam class='glyphicon glyphicon-eye-open'></spam</a></td>"; 
+                                                           echo "<td class='visible-xs'><a href='cambiarStatus/$m->idMensaje/$m->mStatus'><spam class='glyphicon glyphicon-eye-open'></spam</a></td>";
                                                         }
                                                         echo "<td class='hidden-xs'><a href='delMensaje/$m->idMensaje'>Borrar</a></td>";
                                                         echo "<td class='visible-xs'><a href='delMensaje/$m->idMensaje'><spam class='glyphicon glyphicon-trash'></spam</a></td>";
@@ -60,7 +60,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <?php echo $this->pagination->create_links();?><gh{
+                                    <?php echo $this->pagination->create_links();?>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
                         </div><!-- /.col -->

@@ -28,14 +28,14 @@
             <p>
                 Hidalgo #304-A<br> Centro Maravatío Mich.<br>
             </p>
-            <p><i class="fa fa-phone"></i> 
+            <p><i class="fa fa-phone"></i>
                 <abbr title="Phone">Telefon</abbr>: (447) 478-4853</p>
-            <p><i class="fa fa-envelope-o"></i> 
+            <p><i class="fa fa-envelope-o"></i>
                 <abbr title="Email">Correo Electronico</abbr>: <a href="mailto:mbautocristales@gmail.com">mbautocristales@gmail.com</a>
             </p>
-            <p><i class="fa fa-clock-o"></i> 
+            <p><i class="fa fa-clock-o"></i>
                 <abbr title="Hours">Horario</abbr>: Lunes a Viernes: 9:00 AM a 5:00 PM</p>
-                <abbr title="Hours"></abbr>Sabado: 9:00 AM to 2:00 PM</p>
+                <abbr title="Hours"></abbr>Sabado: 9:00 AM a 2:00 PM</p>
             <ul class="list-unstyled list-inline list-social-icons">
                 <li>
                     <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <!-- /.row -->
-    
+
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
@@ -62,32 +62,36 @@
            <?php echo form_open('Mensaje/addMensaje'); ?>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Nombre:</label>
-                        <input type="text" class="form-control" id="name" name="nombreMen" required data-validation-required-message="Please enter your name.">
+                      <label>Nombre:</label>
+                        <?php echo form_error('nombreMen','<div class = "error">','</div>');?>
+                        <input type="text" class="form-control" id="name" name="nombreMen" required="" value="<?= set_value('nombreMen'); ?>" placeholder="Nombre">
                         <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Telefono:</label>
-                        <input type="tel" class="form-control" id="phone" name="telefono" required data-validation-required-message="Please enter your phone number.">
+                      <label>Telefono:</label>
+                        <?php echo form_error('telefono','<div class = "error">','</div>');?>
+                        <input type="tel" class="form-control" id="phone" name="telefono" required="" value="<?= set_value('telefono'); ?>" placeholder="Telefono">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Correo Electronico:</label>
-                        <input type="email" class="form-control" id="email" name="email" required data-validation-required-message="Please enter your email address.">
+                      <label>Correo Electronico:</label>
+                        <?php echo form_error('email','<div class = "error">','</div>');?>
+                        <input type="email" class="form-control" id="email" name="email" required="" value="<?= set_value('email'); ?>" placeholder="Correo Electronico">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Mensaje:</label>
-                        <textarea rows="10" cols="100" class="form-control" id="message" name="mensaje" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                        <?php echo form_error('mensaje','<div class = "error">','</div>');?>
+                        <textarea rows="10" cols="100" class="form-control" id="mensaje" name="mensaje" required="" value="<?= set_value('mensaje'); ?>" placeholder="Mensaje" maxlength="500" style="resize:none"></textarea>
                     </div>
                 </div>
                 <div id="success"></div>
                 <!-- For success/fail messages -->
-                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                <button type="submit" class="btn btn-primary" onclick="return confirm('Su mensaje sera enviado')">Enviar Mensaje</button>
              <?php echo form_close(); ?>
         </div>
 

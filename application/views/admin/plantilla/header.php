@@ -1,3 +1,9 @@
+<?php
+  if (!$this->session->userdata('nick')) {
+    redirect('Micontrolador/index');
+  }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,4 +33,3 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-   

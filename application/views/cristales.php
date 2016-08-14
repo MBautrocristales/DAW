@@ -40,8 +40,8 @@
                 </div>
                 <div class="panel-body">
                     <h4>PARABRISAS</h4>
-                    <p>Parabrisas el el cristal que se encuentra ubicado en la parte delantera del vehículo para proteger al conductor del viento, lluvia, golpe de insectos, etc. Permite una mejor visibilidad y comodidad al conducir.</p>
-                    
+                    <p>Parabrisas es el cristal que se encuentra ubicado en la parte delantera del vehículo para proteger al conductor del viento, lluvia, golpe de insectos, etc. Permite una mejor visibilidad y comodidad al conducir.</p>
+
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <div class="panel-body">
                     <h4>QUEMACOCOS</h4>
                     <p>Cristal movible que se encuentra en el techo de algunos automóviles, permitiendo la entrada de luz y aire.</p>
-                    
+
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 <div class="panel-body">
                     <h4>LATERAL/ COSTADO</h4>
                     <p>Ventanillas que se encuentran en ambos costados del automóvil con la característica de subir y bajar.</p>
-                    
+
                 </div>
             </div>
         </div>
@@ -89,13 +89,13 @@
                 <div class="panel-body">
                     <h4>MEDALLÓN</h4>
                     <p>Cristal ubicado en la parte trasera del auto.</p>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Service Tabs -->   
+    <!-- Service Tabs -->
     <!-- /.row -->
 
     <hr>

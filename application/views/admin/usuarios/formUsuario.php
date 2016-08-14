@@ -11,7 +11,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/getUsuario"><i class="fa fa-users"></i>Usarios</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/formUsuario"><i class="fa fa-users"></i>Agregar Usuario</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -29,7 +29,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             Nombre:
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" style="width: 50%;">
                                 <?php echo form_error('nombreUs','<div class = "error">','</div>');?>
                                 <input type="text"  class="form-control" name="nombreUs" required="" value="<?= set_value('nombreUs'); ?>" placeholder="Nombre">
 
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             Apellido Paterno:
-                            <div class="form-group has-feedback">                                
+                            <div class="form-group has-feedback" style="width: 50%;">
                                 <?php echo form_error('aPaterno','<div class = "error">','</div>');?>
                                 <input type="text"  class="form-control" name="aPaterno" required="" value="<?= set_value('aPaterno'); ?>" placeholder="Apellido Paterno">
 
@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             Apellido Materno:
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" style="width: 50%;">
                                 <?php echo form_error('aMaterno','<div class = "error">','</div>');?>
                                 <input type="text"  class="form-control" name="aMaterno" required="" value="<?= set_value('aMaterno'); ?>" placeholder="Apellido Materno">
 
@@ -53,14 +53,14 @@
                         </div>
                         <div class="form-group">
                             Usuario:
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" style="width: 50%;">
                                 <?php echo form_error('nick','<div class = "error">','</div>');?>
                                 <input type="text"  class="form-control" name="nick" required="" value="<?= set_value('nick'); ?>" placeholder="Usaurio">
                             </div>
                         </div>
                         <div class="form-group">
                             Contraseña:
-                            <div class="form-group has-feedback">                                
+                            <div class="form-group has-feedback" style="width: 50%;">
                                 <?php echo form_error('password','<div class = "error">','</div>');?>
                                 <input type="password"  class="form-control" name="password" required="" value="<?= set_value('password'); ?>" placeholder="Contraseña">
 
@@ -68,7 +68,7 @@
                         </div>
                         <div class="form-group">
                             Privilegios:
-                            <select name="privilegios" class="form-control select2" style="width: 100%;">
+                            <select name="privilegios" class="form-control select2" style="width: 50%;">
                                 <option value="0" selected="" <?= set_select('privilegios', '0'); ?>>Usuario</option>
                                 <option value="1" <?= set_select('privilegios', '1'); ?>>Administrador</option>
                             </select>

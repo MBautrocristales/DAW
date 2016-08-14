@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url();?>images/Publico/01_inicio/inicio_04.png" alt="">
-                    <a href="<?php echo base_url();?>index.php/micontrolador/contacto" class="btn btn-default">Ver Mas</a>
+                    <a href="<?php echo base_url();?>index.php/micontrolador/contacto" class="btn btn-default">Ver Más</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url();?>images/Publico/01_inicio/inicio_03.jpg" alt="">
-                    <a href="<?php echo base_url();?>index.php/micontrolador/cristales" class="btn btn-default">Ver Mas</a>
+                    <a href="<?php echo base_url();?>index.php/micontrolador/cristales" class="btn btn-default">Ver Más</a>
                 </div>
             </div>
         </div>
@@ -42,10 +42,9 @@
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url();?>images/Publico/01_inicio/inicio_02.jpg" alt="">
-                    <a href="<?php echo base_url();?>index.php/micontrolador/contacto" class="btn btn-default">Ver Mas</a>
+                    <a href="<?php echo base_url();?>index.php/micontrolador/contacto" class="btn btn-default">Ver Más</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- /.row -->
-

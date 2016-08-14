@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Usuarios
+            Salidas
             <small>Modificar Salida</small>
         </h1>
         <ol class="breadcrumb">
@@ -11,7 +11,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/Salida/getSalida"><i class="fa fa-external-link-square"></i>Usarios</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/Salida/formUpSalida"><i class="fa fa-external-link-square"></i>Modificar Usario</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -27,34 +27,24 @@
                     <div class="box-body">
                         <input type="hidden" name="id" value="<?php echo $sa->idSalida;?>">
                         <div class="form-group">
-                            Fecha:
-                            <div class="form-group has-feedback">
-                                <input type="date" required="" class="form-control" name="FechaS" value="<?php echo $sa->FechaS;?>" placeholder="Fecha">
-                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            Cantidad:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="CantidadS" value="<?php echo $sa->CantidadS;?>" placeholder=" Cantidad">
-                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            Bodega:
-                            <select name="idBodega" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
+                          Fecha:
+                          <?php echo form_error('FechaS','<div class = "error">','</div>');?>
+                          <input type="date" required="" value="<?php echo $sa->FechaS;?>" name="FechaS">
+                          Cantidad:
+                          <?php echo form_error('CantidadS','<div class = "error">','</div>');?>
+                          <input type="number" required="" name="CantidadS" value="<?php echo $sa->CantidadS;?>"  placeholder="Cantidad">
+                          Bodega:
+                          <?php echo form_error('idBodega','<div class = "error">','</div>');?>
+                          <select name="idBodega" style="width: 10%;">
+                              <option value="1" selected="">1</option>
+                              <option value="2">2</option>
+                          </select>
+
                         </div>
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
                         <button type="submit" value="enviar" class="btn btn-primary">
                             <i class="fa"></i> Aceptar
-                        </button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-close"></i> Cancelar
                         </button>
                     </div>
                     <?php } ?>

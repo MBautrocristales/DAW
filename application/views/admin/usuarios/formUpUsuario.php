@@ -11,7 +11,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/getUsuario"><i class="fa fa-users"></i>Usarios</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/formUsuario"><i class="fa fa-users"></i>Modificar Usario</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -29,41 +29,36 @@
                         <div class="form-group">
                             Nombre:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="nombreUs" value="<?php echo $usu->nombreUs;?>" placeholder="Nombre">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <input type="text" required="" class="form-control" style="width: 50%;" name="nombreUs" value="<?php echo $usu->nombreUs;?>" placeholder="Nombre">
                             </div>
                         </div>
                         <div class="form-group">
-                            Nombre:
+                            Apellido Paterno:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="aPaterno" value="<?php echo $usu->aPaterno;?>" placeholder="Apellido Paterno">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <input type="text" required="" class="form-control" style="width: 50%;" name="aPaterno" value="<?php echo $usu->aPaterno;?>" placeholder="Apellido Paterno">
                             </div>
                         </div>
                         <div class="form-group">
-                            Nombre:
+                            Apellido Materno:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="aMaterno" value="<?php echo $usu->aMaterno;?>" placeholder="Apellido Materno">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <input type="text" required="" class="form-control" style="width: 50%;" name="aMaterno" value="<?php echo $usu->aMaterno;?>" placeholder="Apellido Materno">
                             </div>
                         </div>
                         <div class="form-group">
                             Usuario:
                             <div class="form-group has-feedback">
-                                <input type="text" required="" class="form-control" name="nick" value="<?php echo $usu->nick;?>" placeholder="Usaurio">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <input type="text" required="" class="form-control" style="width: 50%;" name="nick" value="<?php echo $usu->nick;?>" placeholder="Usaurio">
                             </div>
                         </div>
                         <div class="form-group">
                             Contraseña:
                             <div class="form-group has-feedback">
-                                <input type="password" required="" class="form-control" name="password" value="<?php echo $usu->password;?>" placeholder="Contraseña">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <input type="password" required="" class="form-control" style="width: 50%;" name="password" value="<?php echo $usu->password;?>" placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="form-group">
                             Privilegios:
-                            <select name="privilegios" class="form-control select2" style="width: 100%;">
+                            <select name="privilegios" class="form-control select2" style="width: 50%;">
                                 <option value="0">Usuario</option>
                                 <option value="1">Administrador</option>
                             </select>
@@ -74,9 +69,6 @@
                     <div class="box-footer">
                         <button type="submit" value="enviar" class="btn btn-primary">
                             <i class="fa"></i> Aceptar
-                        </button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-close"></i> Cancelar
                         </button>
                     </div>
                     <?php } ?>

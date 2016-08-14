@@ -35,12 +35,17 @@
                 <p class="login-box-msg">Accede a tu sesion</p>
 
                 <div class="form-group has-feedback">
+                    <?php echo form_error('nick'); ?>
                     <input type="text" class="form-control" name="nick" placeholder="username">
+                    <p style="color:black"><?php echo $this->session->flashdata('mensaje2')?></p>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
+                    <?php echo form_error('password'); ?>
                     <input type="password" class="form-control" name="password" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <p style="color:black"><?php echo $this->session->flashdata('mensaje')?></p>
+
                 </div>
                 <div class="row">
 

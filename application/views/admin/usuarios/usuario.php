@@ -27,9 +27,9 @@
                                                 <td colspan="8"><a href="formUsuario">Nuevo</td>
                                             </tr>
                                             <tr>
-                                                <th>Usaurio</th>
+                                                <th>Usuario</th>
                                                 <th>Nombre</th>
-                                                <th class="hidden-xs">Password</th>
+                                                <th class="hidden-xs">Contraseña</th>
                                                 <th class="hidden-xs">Privilegios</th>
                                                 <th colspan="4">Acciones</th>
                                             </tr>
@@ -44,7 +44,7 @@
                                                         echo "<td>" . $u->nombreUs." ".$u->aPaterno." ".$u->aMaterno ."</td>";
                                                         echo "<td class='hidden-xs'>" . $u->password . "</td>";
                                                          $privilegios = ($u->privilegios == 1) ? 'Administrador' : 'Usuario';
-                                                         echo "<td><a href='cambiarPrivilegios/$u->idUsuario/$u->privilegios'>$privilegios</a></td>";
+                                                        echo "<td><a href='cambiarPrivilegios/$u->idUsuario/$u->privilegios'>$privilegios</a></td>";
                                                         echo "<td><a href='formUpUsuario/$u->idUsuario'>". "<spam class='hidden-xs'>Modificar</spam>"."<spam class='visible-xs glyphicon glyphicon-pencil'></spam>"."</a></td>";
                                                         echo "<td class='hidden-xs'><a href='delUsuario/$u->idUsuario'>Borrar</a></td>";
                                                         echo "<td class='visible-xs'><a href='delUsuario/$u->idUsuario'><spam class='glyphicon glyphicon-trash'></spam</a></td>";

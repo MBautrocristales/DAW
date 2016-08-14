@@ -26,35 +26,26 @@
 
                     <div class="box-body">
                         <div class="form-group">
-                            Fecha:
-                            <div class="form-group has-feedback">
-                                <input type="date" required="" class="form-control" name="FechaS" placeholder="Fecha">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                            </div>
-                        </div>
-                         <div class="form-group">
-                            Cantidad:
-                            <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="CantidadS" placeholder="Cantidad">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            Bodega:
-                            <select name="idBodega" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
 
+                            <div class="form-group has-feedback">
+                                Fecha:
+                                <?php echo form_error('FechaS','<div class = "error">','</div>');?>
+                                <input type="date" required="" value="<?php echo date("Y-m-d");?>" name="FechaS">
+                                Cantidad:
+                                <?php echo form_error('CantidadS','<div class = "error">','</div>');?>
+                                <input type="number" required="" name="CantidadS" placeholder="Cantidad">
+                                Bodega:
+                                <?php echo form_error('idBodega','<div class = "error">','</div>');?>
+                                <select name="idBodega" style="width: 10%;">
+                                    <option value="1" selected="">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                           </div>
+                        </div>
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa"></i> Aceptar
-                        </button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-close"></i> Cancelar
                         </button>
                     </div>
                     <?php echo form_close(); ?>

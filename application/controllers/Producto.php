@@ -6,6 +6,16 @@ class Producto extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Producto_model');
+        $this->load->model('Categoria_model');
+        $this->load->model('Bodega_model');
+        $this->load->model('Tipo_model');
+        $this->load->model('Precio_model');
+        $this->load->model('Caracteristica_model');
+        $this->load->model('Procedencia_model');
+        $this->load->model('Auto_model');
+        $this->load->model('Modelo_model');
+        $this->load->model('Ubicacion_model');
+        $this->load->model('Usuario_model');
         $this->load->helper('form');
     }
 
@@ -17,7 +27,7 @@ class Producto extends CI_Controller {
     }
 
     public function getProducto($id = null) {
-        $data['nombre'] = $this->session->userdata('username');
+        $data['nombre'] = $this->session->userdata('nick');
         $data['producto'] = $this->Producto_model->getProducto($id);
         $data['content'] = 'admin/productos/producto';
         $this->load->view('admin', $data);
@@ -25,6 +35,16 @@ class Producto extends CI_Controller {
 
     public function formProducto() {
         $data['nombre'] = $this->session->userdata('username');
+        //$data['producto'] = $this->Producto_model->getProducto();
+        $data['categoria'] = $this->Categoria_model->getCategoria();
+        $data['precio'] = $this->Precio_model->getPrecio();
+        $data['caracteristica'] = $this->Caracteristica_model->getCaracteristica();
+        $data['ubicacion'] = $this->Ubicacion_model->getUbicacion();
+        $data['procedencia'] = $this->Procedencia_model->getProcedencia();
+        $data['tipo'] = $this->Tipo_model->getTipo();
+        $data['bodega'] = $this->Bodega_model->getBodega();
+        $data['auto'] = $this->Auto_model->getAuto();
+        $data['usuario'] = $this->Usuario_model->getUsuario();
         $data['content'] = 'admin/productos/formProducto';
         $this->load->view('admin', $data);
     }
@@ -79,6 +99,23 @@ class Producto extends CI_Controller {
         $this->Producto_model->delProducto($id);
         redirect('producto/getProducto');
     }
+
+    public function generar() {
+
+            switch($for = $this->input->post('formato')){
+                case 'xml':
+                    $xml = $this->Producto_model->generalXML('producto');
+                    $this->load->helper('download');
+                    $nombre = 'Producto'."-".date("d_m_Y - H_i_s").'.xml';
+                    force_download($nombre,$xml);
+                    break;
+                case 'xls':
+                      $this->load->helper('mysql_to_excel');
+                      to_excel($this->Producto_model->generarXLS(),'producto'."-".date("d_m_Y - H_i_s"));
+                    break;
+            }
+            redirect('Producto/getProducto');
+        }
 
     public function cerrarSesion() {
         $user_array = array(

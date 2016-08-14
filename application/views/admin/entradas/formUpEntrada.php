@@ -8,10 +8,10 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url(); ?>index.php/Usuario/logueado"><i class="fa fa-home"></i> Inicio</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Entrada/getEntrada"><i class="fa fa-stack-overflow"></i>Usarios</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/Entrada/formUpEntrada"><i class="fa fa-stack-overflow"></i>Modificar Usario</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Entrada/getEntrada"><i class="fa fa-stack-overflow"></i>Entradas</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Entrada/formUpEntrada"><i class="fa fa-stack-overflow"></i>Modificar Entrada</a></li>
         </ol>
-    </section>        
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -27,34 +27,34 @@
                     <div class="box-body">
                         <input type="hidden" name="id" value="<?php echo $en->idEntrada;?>">
                         <div class="form-group">
-                            Fecha:
+
                             <div class="form-group has-feedback">
-                                <input type="date" required="" class="form-control" name="FechaE" value="<?php echo $en->FechaE;?>" placeholder="Nombre">
-                                
+                              Fecha:
+                                <input type="date" required="" value="<?php echo $en->FechaE;?>" name="FechaE">
+                              Cantidad:
+                                <input type="number" required=""  name="CantidadE" value="<?php echo $en->CantidadE;?>" placeholder="Cantidad">
+                                Bodega:
+                                  <select name="idBodega"  style="width: 10%;">
+                                    <option value="1" selected="">1</option>
+                                    <option value="2">2</option>
+                                  </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            Cantidad:
+
                             <div class="form-group has-feedback">
-                                <input type="number" required="" class="form-control" name="CantidadE" value="<?php echo $en->CantidadE;?>" placeholder="Apellido Paterno">
-                                
+
+
                             </div>
                         </div>
                         <div class="form-group">
-                            Bodega:
-                            <select name="idBodega" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
+
                         </div>
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
                         <button type="submit" value="enviar" class="btn btn-primary">
                             <i class="fa"></i> Aceptar
-                        </button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-close"></i> Cancelar
                         </button>
                     </div>
                     <?php } ?>

@@ -55,6 +55,21 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <div class="col-md-12 col-sm-12">
+                          <h2>Generar reporte</h2>
+                            <?php echo form_open('Entrada/generar')?>
+                            <div class="radio">
+                <label>
+                    <input name="formato" type="radio" value="xml" required>XML
+                </label>
+                <label>
+                    <input name="formato" type="radio" value="xls" required>EXCEL
+                </label>
+            </div>
+                                <input type="submit" value="Generar" class="center-block btn btn-info" onclick="return confirm('¿Deseas Continuar?')">
+                             </form>
+                        </div>
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col -->

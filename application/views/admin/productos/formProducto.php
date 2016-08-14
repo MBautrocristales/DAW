@@ -7,9 +7,9 @@
             <small>Nuevo Producto</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li class="active">Agregar Producto</li>
+            <li><a href="<?php echo base_url(); ?>index.php/Usuario/logueado"><i class="fa fa-home"></i> Inicio</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Producto/getProducto">Productos</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/Producto/addProducto">Agregar Producto</a></li>
         </ol>
     </section>
     <!-- Main content -->
@@ -25,6 +25,7 @@
                     <?php echo form_open('Producto/addProducto'); ?>
 
                     <div class="box-body">
+                      <div class="row">
                         <div class="form-group col-lg-2 col-xs-6">
                             Clave:
                             <div class="form-group has-feedback">
@@ -38,83 +39,140 @@
                             </div>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            id Categoria:
-                            <select name="idCategoria" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                            Categoria:
+                            <select class="form-group select2" name="idCategoria">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($categoria)){
+                                          foreach ($categoria as $pro){
+                                            echo    "<option value='$pro->idCategoria'>" . $pro->NombreCat . "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-3 col-xs-6">
+                            Precio Dentro:
+                            <select class="form-group" name="idPrecio">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($precio)){
+                                          foreach ($precio as $pro){
+                                            echo    "<option value='$pro->idPrecio'>" .'P. Lista: '. $pro->P_Lista.' P. Mayoreo: '. $pro->P_Mayoreo  . "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-1 col-xs-6">
+                            Color
+                            <select class="form-group select2" name="idCaracteristica">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($caracteristica)){
+                                          foreach ($caracteristica as $pro){
+                                            echo    "<option value='$pro->idCaracteristica'>". $pro->Color  . "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-lg-2 col-xs-6">
+                            Ubicacion:
+                            <select class="form-group select2" name="idUbicacion">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($ubicacion)){
+                                          foreach ($ubicacion as $pro){
+                                            echo    "<option value='$pro->idUbicacion'>" .'R'. $pro->Rac.'/F'. $pro->Fila.'/P'. $pro->Posicion. "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            id Precio:
-                            <select name="idPrecio" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
+                            Auto:
+                            <select class="form-group select2" name="idAuto">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($auto)){
+                                          foreach ($auto as $pro){
+                                            echo    "<option value='$pro->idAuto'>". $pro->MarcaA. "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            id Caracteristicas:
-                            <select name="idCaracteristica" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
+                            Procedencia:
+                            <select class="form-group select2" name="idProcedencia">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($procedencia)){
+                                          foreach ($procedencia as $pro){
+                                            echo    "<option value='$pro->idProcedencia'>". $pro->NombreP. "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            id Ubicacion:
-                            <select name="idUbicacion" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
+                            Tipo:
+                            <select class="form-group select2" name="idTipo">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($tipo)){
+                                          foreach ($tipo as $pro){
+                                            echo    "<option value='$pro->idTipo'>". $pro->NombreT. "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-2 col-xs-6">
-                            id Auto:
-                            <select name="idAuto" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="4">4</option>
+                            Precio Fuera:
+                            <select class="form-group select2" name="idBodega">
+                              <option selected="selected">Seleccionar</option>
+                               <?php
+                                       if(isset($bodega)){
+                                          foreach ($bodega as $pro){
+                                            echo    "<option value='$pro->idBodega'>" .'P. Publico: '. $pro->P_Publico.' P. Instalado: '. $pro->P_Instalado  . "</option>";
+                                                 }
+                                          }else{
+                                              echo "sin registros";
+                                          }
+                                          ?>
                             </select>
                         </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            id Procedencia:
-                            <select name="idProcedencia" class="form-control select2" style="width: 100%;">
-                                <option value="2" selected="">2</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            id Tipo:
-                            <select name="idTipo" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            id Bodega:
-                            <select name="idBodega" class="form-control select2" style="width: 100%;">
-                                <option value="1" selected="">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-2 col-xs-6">
-                            id Usuario:
-                            <select name="idUsuario" class="form-control select2" style="width: 100%;">
-                                <option value="2" selected="">2</option>
-                                <option value="3">3</option>
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
 
-                            </select>
+                        <div class="form-group col-lg-2 col-xs-6">
+
+                            <input type="hidden" name="idUsuario" value="0">';
+
+
                         </div>
 
+                      </div>
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa"></i> Aceptar
-                        </button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-close"></i> Cancelar
                         </button>
                     </div>
                     <?php echo form_close(); ?>
